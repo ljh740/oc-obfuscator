@@ -9,7 +9,7 @@
 `hyadeiMac:oc-obfuscator hya$ python oc-obfuscator.py `<br>
 
 #0x01
-`->ProjectName:project_name`
+`->ProjectName:project_name`<br>
 	├── /Users/hya/PycharmProjects/oc-obfuscator/CHGetID<br>
 		├── .DS_Store<br>
 		├── /Users/hya/PycharmProjects/oc-obfuscator/CHGetID/.git<br>
