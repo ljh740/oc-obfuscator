@@ -30,7 +30,7 @@ str = '''
 #系统白名单 需要从文件读取
 WHITE_LIST = []
 #定义第三方SDK列表
-SDK_LIST = ["XGPush","XGSetting","UMSocial","ShareSDK","MJRefresh","Masonry","AFNet","MJExtension","HUPhotoBrowser","MBProgressHUD","FMDB","WMPageController","BlocksKit","LPPopup","Pods","SDWebImage","BaiduMap"]
+SDK_LIST = ["XGPush","XGSetting","UMSocial","ShareSDK","MJRefresh","Masonry","AFNet","MJExtension","HUPhotoBrowser","MBProgressHUD","FMDB","WMPageController","BlocksKit","LPPopup","Pods","SDWebImage","BaiduMap","CocoaSecurity"]
 #定义系统的主要函数列表 必须填.m
 SYSTEM_LIST = ['main.m','Main.storyboard','LaunchScreen.xib','LaunchScreen.storyboard']
 FILE_NAME = ['main','Main','LaunchScreen']
