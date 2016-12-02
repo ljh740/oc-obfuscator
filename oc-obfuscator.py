@@ -10,7 +10,23 @@ import argparse
 import zipfile
 from compiler.ast import flatten
 import shutil
+import time
 
+str = '''
+                       _      __                     _
+  ___   ___       ___ | |__  / _|_   _ ___  ___ __ _| |_ ___  _ __
+ / _ \ / __|____ / _ \| '_ \| |_| | | / __|/ __/ _` | __/ _ \| '__|
+| (_) | (_|_____| (_) | |_) |  _| |_| \__ \ (_| (_| | || (_) | |
+ \___/ \___|     \___/|_.__/|_|  \__,_|___/\___\__,_|\__\___/|_|
+
+                                                    by ch4r0n
+[1] Make sure your project is under the current directory.
+[2] Input your project name.
+[3] Input salt value, Only letters are allowed.
+[4] If successful, an encrypted key-value is output, good luck..
+
+-----------------------------------------------------------------
+'''
 #系统白名单 需要从文件读取
 WHITE_LIST = []
 #定义第三方SDK列表
@@ -515,15 +531,25 @@ def travelTree(currentPath, count):
         for eachPath in pathList:
             travelTree(currentPath + '/' + eachPath, count + 1)
 
-def outPutLog(proj_path,all_keys):
+def outPutLog(all_keys):
     try:
     #在该目录下创建log
-        filestr = os.path.abspath(sys.argv[0])+'/seclog.txt'
+        ABSPATH = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
+        filestr = ABSPATH+'seclog.txt'
         fopen = open(filestr,'w+')
+        fopen.write(''' ____ ____ ____ ____ ____ ____ ____ ____ ____
+||K |||e |||y |||- |||V |||a |||l |||u |||e ||
+||__|||__|||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|\n\n''')
+        ISOTIMEFORMAT = '%Y-%m-%d %X'
+        timestamp = time.strftime(ISOTIMEFORMAT, time.localtime())
+        fopen.writelines('time:'+timestamp+'\n')
+
         for k,v in all_keys.iteritems():
             tmpstr = '%s\t\t%s\n' % (v,k)
             fopen.writelines(tmpstr)
         fopen.close()
+        print "LogPath:",filestr
         return True
     except Exception,e:
         print e
@@ -534,12 +560,12 @@ def inputArgs():
     WHITE_LIST = readTxtToList(RES_KEY_PATH)
     ABSPATH = os.path.abspath(sys.argv[0])
     ABSPATH = os.path.dirname(ABSPATH) + "/"
-    projectFile = ABSPATH + raw_input("ProjectName:")
+    projectFile = ABSPATH + raw_input("->ProjectName:")
     if os.path.exists(projectFile) == True:
         travelTree(projectFile,1)
-        print "项目路径:",projectFile
+        print "Project Path:",projectFile,'\n'
     else:
-        print "你确定项目路径输正确了?"
+        print "Are you sure the file is exists?"
         exit()
 
     SALT = raw_input("SaltKey:")
@@ -553,12 +579,13 @@ def inputArgs():
     allkeys = renameFile(projectFile, need_encrypt_file_tuple[0], all_keys_tuple[0], all_keys_tuple[1],
                          all_keys_tuple[2], all_keys_tuple[3])
     outPutLog(allkeys)
-    print 'success'
+    print 'success!'
 
 
 
 if __name__ == '__main__':
     # parseArgs()
+    print str
     inputArgs()
 
 
