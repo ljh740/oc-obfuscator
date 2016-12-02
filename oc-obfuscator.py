@@ -538,7 +538,7 @@ def outPutLog(all_keys):
         filestr = ABSPATH+'seclog.txt'
         fopen = open(filestr,'w+')
         fopen.write(''' ____ ____ ____ ____ ____ ____ ____ ____ ____
-||K |||e |||y |||- |||V |||a |||l |||u |||e ||
+||V |||a |||l |||u |||e |||- |||K |||e |||y ||
 ||__|||__|||__|||__|||__|||__|||__|||__|||__||
 |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|\n\n''')
         ISOTIMEFORMAT = '%Y-%m-%d %X'
