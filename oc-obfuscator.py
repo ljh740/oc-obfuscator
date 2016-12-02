@@ -12,7 +12,7 @@ from compiler.ast import flatten
 import shutil
 import time
 
-str = '''
+HEADER_BANNER = '''
                        _      __                     _
   ___   ___       ___ | |__  / _|_   _ ___  ___ __ _| |_ ___  _ __
  / _ \ / __|____ / _ \| '_ \| |_| | | / __|/ __/ _` | __/ _ \| '__|
@@ -585,8 +585,12 @@ def inputArgs():
 
 if __name__ == '__main__':
     # parseArgs()
-    print str
+    print HEADER_BANNER
     inputArgs()
+
+
+
+
 
 
 
